@@ -12,7 +12,7 @@ class CartController extends Controller
     /**
      * Display a listing of cart items.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index(Request $request)
     {
@@ -32,7 +32,7 @@ class CartController extends Controller
      * Store a newly created cart item in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(StoreCartRequest $request)
     {
@@ -46,20 +46,19 @@ class CartController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Cart  $cart
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(UpdateCartRequest $request, Cart $cart)
     {
-        return $request;
         $cart->update($request->only('qty','session_id','product_id','user_id'));
-        return $cart;
+        return $this->success($cart);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Cart  $cart
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(Cart $cart)
     {

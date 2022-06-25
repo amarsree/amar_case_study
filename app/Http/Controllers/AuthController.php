@@ -15,7 +15,7 @@ class AuthController extends Controller
     /**
      * create a new user and respond with API token
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function register(RegisterRequest $request)
     {
@@ -30,7 +30,7 @@ class AuthController extends Controller
     /**
      * login function 
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function login(LoginRequest $request)
     {
