@@ -29,7 +29,7 @@ class StoreProductRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
-            'price' => ['required','integer'],
+            'price' => ['required','numeric'],
             'category_id' => ['required','exists:categories,id','integer'],
             'description' => ['required','string'],
             'avatar' => ['required','image',
