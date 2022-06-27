@@ -9,9 +9,10 @@ use App\Http\Requests\UpdateCartRequest;
 
 class CartController extends Controller
 {
+    
     /**
      * Display a listing of cart items.
-     *
+     * @QAparam session_id string
      * @return \Illuminate\Http\JsonResponse
      */
     public function index(Request $request)

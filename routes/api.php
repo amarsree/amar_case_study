@@ -18,10 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+/* Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+ */
 
 Route::post('/auth/register', [AuthController::class, 'register']);
 
@@ -29,12 +29,12 @@ Route::post('/auth/login', [AuthController::class, 'login']);
 Route::get('/generate-session', [AuthController::class, 'generateSession']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('/me', function(Request $request) {
+    Route::get('aaaa/me', function(Request $request) {
         return auth()->user();
     });
     Route::post('/auth/logout', [AuthController::class, 'logout']);
 });
 
-Route::Resource('cart', CartController::class);
-Route::apiResource('products', ProductController::class);
+Route::Resource('cart', CartController::class)->except('create','show','edit');
+Route::apiResource('products', ProductController::class)->except('update');
 
