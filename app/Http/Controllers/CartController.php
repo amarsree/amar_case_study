@@ -63,6 +63,7 @@ class CartController extends Controller
      */
     public function destroy(Cart $cart)
     {
+        $cart->delete();
         return $this->success(null,null,204);
     }
 }
